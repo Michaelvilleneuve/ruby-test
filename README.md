@@ -16,3 +16,9 @@ bundle
 rake test
 ```
 
+## Next steps
+
+- Ability to edit player data
+- Better error handling
+- Functional testing
+
