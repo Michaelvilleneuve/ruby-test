@@ -13,12 +13,13 @@ class TestHelper < ActiveSupport::TestCase
 
   setup do
     Console::Prompt.stubs(:say)
+    Console::Response.any_instance.stubs(:valid_answer?).returns(true)
     Readline.stubs(:readline).returns('Default answer')
   end
 
   def mock_response(expected_answer)
     response_mock = ::Console::Response.new(expected_answer)
-    ::Console::Response.stubs(:new).with(expected_answer).returns(response_mock)
-    Readline.expects(:readline).with('>', true).once.returns(expected_answer)
+    ::Console::Response.stubs(:new).with(expected_answer, nil).returns(response_mock)
+    Readline.expects(:readline).with('> ', true).once.returns(expected_answer)
   end
 end

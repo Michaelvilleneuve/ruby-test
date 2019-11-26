@@ -18,7 +18,9 @@ module Events
       event
     end
 
-    def start; end
+    def start
+      raise RuntimeError.new('All event must define a process')
+    end
 
     def self.process(&block)
       define_method(:start) do
@@ -26,6 +28,10 @@ module Events
       end
     end
 
-    def answer(something); end
+    def self.path(name, &block)
+      define_method(name) do
+        proc { |args| instance_exec(args, &block) }
+      end
+    end
   end
 end

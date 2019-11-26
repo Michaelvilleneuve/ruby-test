@@ -2,20 +2,26 @@ require_relative '../../test_helper'
 
 module Events
   class WelcomeTest < TestHelper
-    test 'has two potential paths' do
-      assert_equal 2, ::Events::Welcome.new.paths
+    setup do
+      Console::Response.any_instance.unstub(:valid_answer?)
+    end
+
+    def answer_with(*answers)
+      Readline.stubs(:readline).returns(*answers)
     end
 
     test 'positive answer takes you to the next event' do
-      event = ::Events::Welcome.start
-      event.answer('GO')
+      answer_with('yes')
+    
+      ::Events::Welcome.start
     end
-
+    
     test 'negative answer aborts game' do
-      event = ::Events::Welcome.start
+      answer_with('no')
 
       ::Events::GameOver.expects(:start).once
-      event.answer('NO')
+
+      ::Events::Welcome.start
     end
   end
 end

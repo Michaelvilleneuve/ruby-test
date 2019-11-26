@@ -1,5 +1,5 @@
 class Game
   def self.play!
-    Console::Prompt.ask('Are you ready?')
+    Events::Welcome.start
   end
 end
