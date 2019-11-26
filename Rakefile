@@ -1,5 +1,5 @@
 require 'rake/testtask'
-require_relative 'lib/game'
+Dir["lib/**/*.rb"].each {|file| require_relative file  }
 
 Rake::TestTask.new do |t|
   t.libs << 'test'
