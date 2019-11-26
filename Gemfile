@@ -7,4 +7,5 @@ group :test do
   gem 'rake'
   gem 'mocha'
   gem 'minitest'
+  gem 'rubocop'
 end
