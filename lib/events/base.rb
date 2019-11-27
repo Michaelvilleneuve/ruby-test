@@ -3,7 +3,6 @@ require 'forwardable'
 module Events
   class Base
     extend Forwardable
-    attr_reader :paths
 
     def_delegators :@console, :say, :ask
 
@@ -19,7 +18,7 @@ module Events
     end
 
     def start
-      raise RuntimeError.new('All event must define a process')
+      raise 'All event must define a process'
     end
 
     def self.process(&block)
