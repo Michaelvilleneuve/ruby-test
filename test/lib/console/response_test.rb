@@ -18,6 +18,11 @@ module Console
       ::Console::Tutorial.expects(:help).once
       ::Console::Response.new('help').handle
     end
+
+    test 'returns false when asked for "help"' do
+      assert ::Console::Response.new('ok').handle
+      assert_not ::Console::Response.new('help').handle
+    end
     
     test 'if given expected answers, returns false if answer is not valid' do
       valid_answer = ::Console::Response.new('yes', 'yes': ->(r) {})

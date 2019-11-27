@@ -7,10 +7,15 @@ module Console
 
     def handle
       return exit if @response == 'exit'
-      return ::Console::Tutorial.help if @response == 'help'
-      return false unless valid_answer?
+      return false if asked_for_tutorial? || !valid_answer?
 
       @response
+    end
+
+    def asked_for_tutorial?
+      shoud_show_tutorial = @response == 'help'
+      ::Console::Prompt.say(::Console::Tutorial.help) if shoud_show_tutorial
+      shoud_show_tutorial
     end
 
     def valid_answer?
