@@ -31,10 +31,10 @@ class TestHelper < ActiveSupport::TestCase
   def create_game
     @game = Game.new
     @game.player = Environment::Cyclist.new('Michael')
-    @game.player.adjust_power_to('beginner')
+    @game.player.adjust_power_to('local')
     
     @game.opponent = Environment::Cyclist.new('Regis')
-    @game.opponent.adjust_power_to('beginner')
+    @game.opponent.adjust_power_to('local')
     @game
   end
 end
