@@ -16,6 +16,10 @@ module Environment
       raise CyclistKOError, "Player #{@name} is too tired, game over." if @power.negative?
     end
 
+    def die
+      raise CyclistKOError, 'You are dead'
+    end
+
     def self.levels
       { unknown: 50, local: 75, celebrity: 100 }
     end

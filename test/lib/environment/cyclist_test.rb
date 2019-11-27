@@ -35,5 +35,11 @@ module Environment
         @cyclist.attack
       end
     end
+
+    test 'die goes immediately game over' do
+      assert_raises Environment::CyclistKOError do
+        @cyclist.die
+      end
+    end
   end
 end
