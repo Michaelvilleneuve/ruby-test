@@ -33,5 +33,20 @@ module Events
         IncorrectEvent.start
       end
     end
+
+    test 'launch DSL allows to launch an event with adequate params' do
+      class EventWithoutLaunch < ::Events::Base
+      end
+
+      class EventWithLaunch < ::Events::Base
+        process do
+          launch EventWithoutLaunch
+        end
+      end
+
+      EventWithoutLaunch.any_instance.expects(:start).once
+
+      EventWithLaunch.start
+    end
   end
 end

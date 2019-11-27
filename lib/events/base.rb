@@ -21,6 +21,10 @@ module Events
       raise 'All event must define a process'
     end
 
+    def launch(event)
+      event.start(@arguments)
+    end
+
     def self.process(&block)
       define_method(:start) do
         instance_eval(&block)
