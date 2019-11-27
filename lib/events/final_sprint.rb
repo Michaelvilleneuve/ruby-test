@@ -1,4 +1,5 @@
 require 'active_support/time'
+require_relative 'base'
 
 module Events
   class FinalSprint < ::Events::Base
