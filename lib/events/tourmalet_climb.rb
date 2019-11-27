@@ -17,6 +17,7 @@ module Events
     path(:shortcut) do
       say "Good idea, #{opponent.name} managed to catch up but he loses 20 of power"
       opponent.power -= 20
+      launch ShortcutHell
     end
 
     path(:rest) do

@@ -4,6 +4,7 @@ module Events
   class TourmaletClimbTest < TestHelper
     setup do
       @game = create_game
+      ShortcutHell.stubs(:start)
     end
 
     test 'shortcut gives you a head start' do
@@ -12,6 +13,12 @@ module Events
       TourmaletClimb.start(@game)
       
       assert initial_power > @game.opponent.power
+    end
+
+    test 'shortcut calls the ShortcutHell path' do
+      answer_with('Take it')
+      TourmaletClimb.any_instance.expects(:launch).with(ShortcutHell).once
+      TourmaletClimb.start(@game)
     end
 
     test 'rest makes you loose power to keep up' do
