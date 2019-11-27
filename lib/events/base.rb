@@ -5,6 +5,7 @@ module Events
     extend Forwardable
 
     def_delegators :@console, :say, :ask
+    def_delegators :@game, :opponent, :player
 
     def initialize(game = nil)
       @console = ::Console::Prompt
