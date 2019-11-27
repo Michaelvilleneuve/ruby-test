@@ -13,6 +13,6 @@ class Game
     return ::Console::Prompt.say('Game is not ready') if @player.nil? || @opponent.nil?
 
     ::Console::Prompt.say("You have #{@player.power} points of power left")
-    ::Console::Prompt.say("Your enemy #{@opponent.name} has #{@player.power} points left")
+    ::Console::Prompt.say("Your enemy #{@opponent.name} has #{@opponent.power} points left")
   end
 end

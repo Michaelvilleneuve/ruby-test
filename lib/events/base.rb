@@ -16,6 +16,9 @@ module Events
       event = new(*args)
       event.start
       event
+    rescue Environment::CyclistKOError => e
+      Console::Prompt.say(e)
+      event.launch(GameOver)
     end
 
     def start

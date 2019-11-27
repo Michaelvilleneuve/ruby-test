@@ -18,9 +18,8 @@ module Events
       answer_with('accelerate')
       ShortcutHell.any_instance.expects(:sleep).with(1).once
 
-      assert_raises Environment::CyclistKOError do
-        ShortcutHell.start(@game)
-      end
+      GameOver.expects(:start).once
+      ShortcutHell.start(@game)
     end
   end
 end

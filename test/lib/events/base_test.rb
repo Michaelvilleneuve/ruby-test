@@ -34,6 +34,18 @@ module Events
       end
     end
 
+    test 'CyclistKOError triggers GameOver' do
+      game = create_game
+      class EventWithGameOver < ::Events::Base
+        process do
+          player.die
+        end
+      end
+
+      GameOver.expects(:start).once
+      EventWithGameOver.start(game)
+    end
+
     test 'launch DSL allows to launch an event with adequate params' do
       class EventWithoutLaunch < ::Events::Base
       end
