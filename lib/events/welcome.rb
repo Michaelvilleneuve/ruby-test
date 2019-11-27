@@ -10,13 +10,13 @@ module Events
 
     path :game_over do
       say 'Leaving already ??'
-      ::Events::GameOver.start
+      launch ::Events::GameOver
     end
 
     path :game_open do
       say ::Console::Tutorial.introduction
       sleep 1
-      ::Events::MeetTheTeam.start
+      launch ::Events::MeetTheTeam
     end
   end
 end

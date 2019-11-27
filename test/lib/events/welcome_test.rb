@@ -10,8 +10,11 @@ module Events
       Readline.stubs(:readline).returns(*answers)
     end
 
-    test 'positive answer takes you to the next event' do
+    test 'positive answer waits then takes you to the next event' do
       answer_with('yes')
+
+      ::Events::Welcome.any_instance.expects(:sleep).with(1).once
+      ::Events::MeetTheTeam.expects(:start).once
     
       ::Events::Welcome.start
     end
