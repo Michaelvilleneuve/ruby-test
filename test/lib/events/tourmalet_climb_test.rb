@@ -5,6 +5,7 @@ module Events
     setup do
       @game = create_game
       ShortcutHell.stubs(:start)
+      FinalSprint.stubs(:start)
     end
 
     test 'shortcut gives you a head start' do
@@ -17,6 +18,7 @@ module Events
 
     test 'shortcut calls the ShortcutHell path' do
       answer_with('Take it')
+      TourmaletClimb.any_instance.expects(:launch).with(FinalSprint).once
       TourmaletClimb.any_instance.expects(:launch).with(ShortcutHell).once
       TourmaletClimb.start(@game)
     end
@@ -38,6 +40,11 @@ module Events
       
       assert_equal @game.player.power, player_initial_power - 10 
       assert_equal @game.opponent.power, opponent_initial_power - 30 
+    end
+
+    test 'launches descent when reaching summit' do
+      FinalSprint.expects(:start)
+      TourmaletClimb.start(@game)
     end
   end
 end
