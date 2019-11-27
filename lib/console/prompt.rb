@@ -10,8 +10,12 @@ module Console
     def ask
       Console::Prompt.say(question_with_answers) unless @question.nil?
 
-      @answer = Readline.readline('> ', true)
+      @answer = self.class.ask_only
       ask_again_or_return
+    end
+
+    def self.ask_only
+      Readline.readline('> ', true)
     end
 
     def self.say(something)

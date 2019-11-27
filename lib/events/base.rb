@@ -4,7 +4,7 @@ module Events
   class Base
     extend Forwardable
 
-    def_delegators :@console, :say, :ask
+    def_delegators :@console, :say, :ask, :ask_only
     def_delegators :@game, :opponent, :player
 
     def initialize(game = nil)
@@ -39,6 +39,14 @@ module Events
       define_method(name) do
         proc { |args| instance_exec(args, &block) }
       end
+    end
+
+    def countdown
+      3.downto(1) do |remaining_seconds|
+        say "#{remaining_seconds}...."
+        sleep 1
+      end
+      say 'GOO !!!'
     end
   end
 end
