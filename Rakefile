@@ -7,9 +7,9 @@ Rake::TestTask.new do |t|
 end
 
 desc "Run tests"
-task :default => :test
+task :test
 
 desc "play"
 task :play do
-    Game.play!
+  Game.play!
 end
