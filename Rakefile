@@ -1,6 +1,4 @@
 require 'rake/testtask'
-
-require_relative "lib/events/base.rb"
 Dir["lib/**/*.rb"].each {|file| require_relative file  }
 
 Rake::TestTask.new do |t|

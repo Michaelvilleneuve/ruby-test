@@ -6,6 +6,7 @@ require 'minitest/unit'
 require 'active_support'
 require 'mocha/minitest'
 
+require_relative "../lib/events/base.rb"
 Dir["lib/**/*.rb"].each {|file| require_relative "../#{file}"  }
 
 class TestHelper < ActiveSupport::TestCase
