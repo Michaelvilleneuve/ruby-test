@@ -1,5 +1,5 @@
 module Events
-  class Welcome < Base
+  class Welcome < ::Events::Base
     process do
       say ::Console::Tutorial.help
 

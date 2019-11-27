@@ -1,5 +1,5 @@
 module Events
-  class Departure < Base
+  class Departure < ::Events::Base
     process do
       countdown
       say '...'

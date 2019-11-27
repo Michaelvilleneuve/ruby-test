@@ -1,5 +1,5 @@
 module Events
-  class TourmaletClimb < Base
+  class TourmaletClimb < ::Events::Base
     process do
       say '...'
       say 'It is getting really hilly out here. Everyone seems to be struggling and the Tourmalet is still high up there'

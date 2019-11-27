@@ -1,5 +1,5 @@
 module Events
-  class ShortcutHell < Base
+  class ShortcutHell < ::Events::Base
     process do
       say 'The shortcut took you to a very open area, you can see the entire race !'
 

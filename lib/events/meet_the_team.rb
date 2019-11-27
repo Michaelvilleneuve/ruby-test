@@ -1,5 +1,5 @@
 module Events
-  class MeetTheTeam < Base
+  class MeetTheTeam < ::Events::Base
     process do
       create_player
       ask_for_player_level

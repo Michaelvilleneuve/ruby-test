@@ -1,7 +1,7 @@
 require 'active_support/time'
 
 module Events
-  class FinalSprint < Base
+  class FinalSprint < ::Events::Base
     process do
       say 'A few hundreds meters left'
       say "You are still side by side with #{opponent.name}"
