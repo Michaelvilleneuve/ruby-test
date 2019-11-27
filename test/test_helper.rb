@@ -24,6 +24,7 @@ class TestHelper < ActiveSupport::TestCase
   end
 
   def answer_with(*answers)
+    Console::Response.any_instance.unstub(:valid_answer?)
     Readline.stubs(:readline).returns(*answers)
   end
 
@@ -34,5 +35,6 @@ class TestHelper < ActiveSupport::TestCase
     
     @game.opponent = Environment::Cyclist.new('Regis')
     @game.opponent.adjust_power_to('beginner')
+    @game
   end
 end
