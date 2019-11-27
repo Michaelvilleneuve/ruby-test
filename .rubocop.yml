@@ -5,6 +5,7 @@ AllCops:
   Exclude:
     - 'test/**/*'
     - 'Gemfile'
+    - 'Rakefile'
 Lint/Void:
   Enabled: false
 Layout/AlignParameters:
