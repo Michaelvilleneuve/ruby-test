@@ -1,5 +1,11 @@
 class Game
+  attr_accessor :player, :opponent
+
   def self.play!
-    Events::Welcome.start
+    new.play
+  end
+
+  def play
+    Events::Welcome.start(self)
   end
 end

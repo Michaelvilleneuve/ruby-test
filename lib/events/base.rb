@@ -6,9 +6,9 @@ module Events
 
     def_delegators :@console, :say, :ask
 
-    def initialize(*args)
+    def initialize(game = nil)
       @console = ::Console::Prompt
-      @arguments = args
+      @game = game
     end
 
     def self.start(*args)
@@ -22,7 +22,7 @@ module Events
     end
 
     def launch(event)
-      event.start(@arguments)
+      event.start(@game)
     end
 
     def self.process(&block)
