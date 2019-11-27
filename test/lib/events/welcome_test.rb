@@ -6,10 +6,6 @@ module Events
       Console::Response.any_instance.unstub(:valid_answer?)
     end
 
-    def answer_with(*answers)
-      Readline.stubs(:readline).returns(*answers)
-    end
-
     test 'positive answer waits then takes you to the next event' do
       answer_with('yes')
 

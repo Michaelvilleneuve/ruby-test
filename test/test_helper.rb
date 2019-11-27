@@ -22,4 +22,8 @@ class TestHelper < ActiveSupport::TestCase
     ::Console::Response.stubs(:new).with(expected_answer, nil).returns(response_mock)
     Readline.expects(:readline).with('> ', true).once.returns(expected_answer)
   end
+
+  def answer_with(*answers)
+    Readline.stubs(:readline).returns(*answers)
+  end
 end
