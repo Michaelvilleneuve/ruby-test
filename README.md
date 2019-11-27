@@ -16,9 +16,12 @@ bundle
 rake test
 ```
 
-## Next steps
+## Roadmap
 
-- Ability to edit player data
-- Better error handling
-- Functional testing
+A list of things I would keep improving in an actual project
+
+- Better error handling, especially on the DSL methods that can be tricky to debug
+- Global functional testing
+- Moving path logic to a dedicated layer
+
 
