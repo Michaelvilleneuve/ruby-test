@@ -26,4 +26,13 @@ class TestHelper < ActiveSupport::TestCase
   def answer_with(*answers)
     Readline.stubs(:readline).returns(*answers)
   end
+
+  def create_game
+    @game = Game.new
+    @game.player = Environment::Cyclist.new('Michael')
+    @game.player.adjust_power_to('beginner')
+    
+    @game.opponent = Environment::Cyclist.new('Regis')
+    @game.opponent.adjust_power_to('beginner')
+  end
 end

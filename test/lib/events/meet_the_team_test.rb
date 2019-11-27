@@ -4,7 +4,16 @@ module Events
   class MeetTheTeamTest < TestHelper
     setup do
       answer_with('Michaël')
+      MeetTheTeam.any_instance.stubs(:launch)
       @event = MeetTheTeam.start(Game.new)
+    end
+
+    test 'process executes all required steps' do
+      MeetTheTeam.any_instance.expects(:create_player).once
+      MeetTheTeam.any_instance.expects(:ask_for_player_level).once
+      MeetTheTeam.any_instance.expects(:start_the_race).once
+      
+      MeetTheTeam.start(Game.new)
     end
 
     test 'create_player creates the player with given name' do
