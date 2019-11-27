@@ -22,6 +22,7 @@ module Events
     def start_the_race
       say 'Looks like you are all set ! Remember, your goal is to win the race and therefore beat your biggest opponent.'
       name = ask 'What is his name already ?'
+      
       @game.opponent = ::Environment::Cyclist.new(name)
       @game.opponent.adjust_power_to(:local)
 
