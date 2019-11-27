@@ -10,8 +10,17 @@ module Environment
       @power = self.class.levels[fame.to_sym] || rand(1...120)
     end
 
+    def attack
+      @power -= 30
+
+      raise CyclistKOError, "Player #{@name} is too tired, game over." if @power.negative?
+    end
+
     def self.levels
       { unknown: 50, local: 75, celebrity: 100 }
     end
+  end
+
+  class CyclistKOError < StandardError
   end
 end
