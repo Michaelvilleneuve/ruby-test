@@ -13,20 +13,22 @@ module Events
 
     def ask_for_player_level
       levels = ::Environment::Cyclist.levels.keys.map(&:to_s)
-      fame   = ask "Wait #{@game.player.name}, how famous are you ? #{levels.join('?')}"
+      fame   = ask "Wait #{@game.player.name}, how famous are you ? #{levels.join(' ? ')}"
       say 'Ok looks like you are a real player!' unless levels.include?(fame)
 
       @game.player.adjust_power_to(fame)
     end
 
     def start_the_race
-      say 'Looks like you are all set ! Remember, your goal is to win the race and therefore beat your biggest opponent.'
+      say 'That is right ! Looks like you are all set ! Remember, your goal is to win the race and therefore beat your biggest opponent.'
       name = ask 'What is his name already ?'
-      
+
       @game.opponent = ::Environment::Cyclist.new(name)
       @game.opponent.adjust_power_to(:local)
 
-      launch BeginRace
+      say "#{@game.opponent.name} indeed. Ok get in line the race is starting."
+
+      launch Departure
     end
   end
 end

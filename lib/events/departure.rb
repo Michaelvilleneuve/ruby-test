@@ -1,5 +1,5 @@
 module Events
-  class BeginRace < Base
+  class Departure < Base
     process do
     end
   end

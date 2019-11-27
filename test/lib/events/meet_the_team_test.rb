@@ -37,7 +37,7 @@ module Events
 
     test 'start_the_race makes the race begin!' do
       answer_with('Regis')
-      @event.expects(:launch).with(BeginRace).once
+      @event.expects(:launch).with(Departure).once
       @event.start_the_race
     end
   end

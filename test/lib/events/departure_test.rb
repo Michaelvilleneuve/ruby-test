@@ -1,7 +1,7 @@
 require_relative '../../test_helper'
 
 module Events
-  class BeginRaceTest < TestHelper
+  class DepartureTest < TestHelper
     setup do
     end
   end
