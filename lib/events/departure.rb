@@ -2,9 +2,7 @@ module Events
   class Departure < Base
     process do
       countdown
-
       say '...'
-
       ask 'The pack seems to have set a pretty slow pace, time to react.',
           attack: attack,
           wait: wait
@@ -21,14 +19,6 @@ module Events
 
     path(:wait) do
       say 'Wise decision, a big climb is coming !'
-    end
-
-    def countdown
-      3.downto(1) do |remaining_seconds|
-        say "#{remaining_seconds}...."
-        sleep 1
-      end
-      say 'GOO !!!'
     end
   end
 end
