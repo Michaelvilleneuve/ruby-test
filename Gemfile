@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'activesupport'
-gem 'railties', '6.0.1'
+gem 'railties', '6.0.3.1'
 
 group :test do
   gem 'rake'
